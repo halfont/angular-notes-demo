@@ -1,0 +1,25 @@
+
+<mat-dialog-content >
+        <p *ngIf="noteId">{{dateconv(noteData.time)}}</p>
+        <mat-form-field class="fullWidth">
+                <mat-label>Author</mat-label>
+                <input matInput type="text" [(ngModel)]="noteData.author">
+                <button mat-button *ngIf="noteData.author" matSuffix mat-icon-button aria-label="Clear" (click)="noteData.author=''">
+                        <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="fullWidth"  >
+                <mat-label>Text</mat-label>
+                <textarea matInput type="text" [cdkTextareaAutosize]=false [(ngModel)]="noteData.text" style="height: 150px;" ></textarea>
+                <button mat-button *ngIf="noteData.text" matSuffix mat-icon-button aria-label="Clear" (click)="noteData.text=''">
+                        <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" (click)="onConfirmClick()">{{saveButtonText}}</button>
+        <button *ngIf="noteId"  mat-raised-button color="red" (click)="onDelClick()" >{{delButtonText}}</button>
+        <button mat-raised-button mat-dialog-close>{{cancelButtonText}}</button>
+</mat-dialog-actions>
+

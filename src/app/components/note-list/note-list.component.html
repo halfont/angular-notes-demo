@@ -1,0 +1,15 @@
+<mat-grid-list [cols]="breakpoint" gutterSize=20 rowHeight="400px" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let note of notes" [gutterSize]=10 [colspan]=1>
+    <mat-card style="background-color: antiquewhite;">
+      <mat-card-header>
+        <mat-card-title>{{note.author}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-subtitle>{{dateconv(note.time)}}</mat-card-subtitle>
+      <textarea  matInput type="text" [cdkTextareaAutosize]=false [ngModel]="note.text"
+        class="cardtextArea"></textarea>
+      <mat-card-actions>
+        <button mat-button (click)='openDialog(note.time)'>EDIT</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
