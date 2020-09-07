@@ -40,15 +40,15 @@ export class NoteListComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpoint = 4;
-    (window.innerWidth <= 1200) && (this.breakpoint = 3);
-    (window.innerWidth <= 800) && (this.breakpoint = 2);
-    (window.innerWidth <= 600) && (this.breakpoint = 1);
+    (window.innerWidth <= 1750) && (this.breakpoint = 3);
+    (window.innerWidth <= 1300) && (this.breakpoint = 2);
+    (window.innerWidth <= 1080) && (this.breakpoint = 1);
   }
 
   onResize(_) {
     this.breakpoint = 4;
-    (window.innerWidth <= 1200) && (this.breakpoint = 3);
-    (window.innerWidth <= 800) && (this.breakpoint = 2);
-    (window.innerWidth <= 600) && (this.breakpoint = 1);
+    (window.innerWidth <= 1750) && (this.breakpoint = 3);
+    (window.innerWidth <= 1300) && (this.breakpoint = 2);
+    (window.innerWidth <= 1080) && (this.breakpoint = 1);
   }
 }
