@@ -18,7 +18,7 @@ export class NoteListComponent implements OnInit {
   notes: [];
   breakpoint = 4;
   noteId = '';
-
+  notesStore;
   constructor(private dialog: MatDialog, private store: Store<any>) {
     this.store.subscribe(v => {
       this.notes = v.notesStore.noteList

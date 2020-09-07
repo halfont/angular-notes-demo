@@ -22,6 +22,7 @@ export class NoteComponent {
     private store: Store<{ notesStore }>,
     public router: Router,
     private dialogRef: MatDialogRef<NoteComponent>) {
+      this.noteData = {author: undefined, text: undefined}
     if (data) {
       this.noteId = data.noteId || this.noteId;
       this.store.subscribe(v => {
@@ -41,12 +42,12 @@ export class NoteComponent {
 
   onConfirmClick(): void {
     this.noteId ? this.store.dispatch(editNote({ note: this.noteData })) : this.store.dispatch(addNote({ note: this.noteData }));
-    this.dialogRef.close(true);
+    this.dialogRef.close();
     this.router.navigate(['/notes']);
   }
   
   onDelClick(): void {
     this.store.dispatch(delNote({ noteId: this.noteData.time + '' }));
-    this.dialogRef.close(true);
+    this.dialogRef.close();
   }
 }
